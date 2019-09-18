@@ -1,0 +1,85 @@
+using System.Data.SqlClient;
+public static SqlConnection con;
+public static void Main()
+{
+InsertData();
+SelectData();
+Console.Read();
+}
+
+public static void InsertData()
+{
+GetCon();
+Console.WriteLine("Enter eid,ename and sal");
+int eid=Convert.ToInt32(Console.ReadLine());
+string ename=Console.ReadLine();
+float sal=float.Parse(Console.ReadLine());
+SqlCommand cmd=new SqlCommand("Insert into Employee values
+(@empid,@empname,@empsal));
+cmd.Parameters.AddWithValue("@empid",eid);
+cmd.Parameters.AddWithValue("@empname",ename);
+cmd.Parameters.AddWithValue("@empsal",sal);
+cmd.Connection=con;
+cmd.ExecuteNonQuery();
+Console.WriteLine("Record Inserted Successfully");
+}
+
+
+I need VS 2017
+Plz install 2017
+if we install 2017 the system is deadslow its ok for u
+uninstall 2012 and 2015
+i need just 2017
+
+it will take more than 2days
+
+community edition will get installed within 2hours
+8gb ram is enough
+any specific reason to take 2 days
+yes we are in another activtys
+
+one min plz
+ok
+am done
+plz proceed
+just u select what are the products u needed
+sure
+i selected
+u proceed
+
+its ok ?
+yes i started the installation
+
+
+
+
+come to NSS BAY
+
+sending my batch poc
+plz convey things to him
+ we have lot of doubts just come to nss bay
+which floor?
+5th flooor
+ok in 2 mins shall be there
+
+
+public static void GetCon()
+{
+con=new SqlConnection("Data Source=(local);+
+Initial Catalog=Organization;Integrated Security=true");
+con.Open();
+}
+public static void SelectData()
+{
+GetCon();
+SqlCommand cmd=new SqlCommand("Select * from Employee");
+cmd.Connection=con;
+SqlDataReader dr=cmd.ExecuteReader();
+while(dr.Read()) //Travel the Row
+{
+for(int i=0;i<dr.FieldCount;i++) //Travel the Column
+{
+Console.WriteLine(dr[i]);
+}
+}
+}

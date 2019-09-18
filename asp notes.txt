@@ -1,0 +1,86 @@
+Page lifecycle of ASP.NET:
+
+S - Start
+I - Initialized
+L - Load
+V - Validate
+E - Event Handling
+R - Render
+
+State Management Techniques
+
+Http is a stateless protocol, we need to maintain the state of a control
+
+Client side
+1. ViewState
+2. Hiddenfield
+3. Cookies
+4. Querystring
+
+Server side
+1. Session
+2. Application
+
+
+       EmpLibrary.Emp obj = new EmpLibrary.Emp();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)//First time of page is loaded (get)
+            {
+                FillGrid();
+            }
+
+        }
+
+        private void FillGrid()
+        {
+           GridView1.DataSource = obj.GetEmpList();
+            GridView1.DataBind();
+        }
+
+        //Post method
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+        //   FillGrid();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex;
+           FillGrid();
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            bool status = false;
+          //  int userid = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Value.ToString());
+            GridViewRow row = (GridViewRow)GridView1.Rows[e.RowIndex];
+          
+           
+            TextBox textid = (TextBox)row.Cells[2].Controls[0];
+            TextBox textname = (TextBox)row.Cells[3].Controls[0];
+            TextBox textcity = (TextBox)row.Cells[4].Controls[0];
+
+            int eid = Convert.ToInt32(textid.Text); ;
+            string ename = textname.Text.ToString();
+            string ecity = textcity.Text.ToString();
+            GridView1.EditIndex = -1;
+           // List<Emp> emplist = obj.GetEmpList();
+            obj.editEmp(eid, ename, ecity);
+
+            if (status == true)
+                Response.Redirect("About.aspx");
+            
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+
+

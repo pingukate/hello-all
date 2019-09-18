@@ -1,0 +1,25 @@
+What is CLR?
+CTS?common type system,msil 
+Access specifiers in .NET?
+Boxing and UnBoxing?
+What is interface?
+Abstract class?
+Difference between Interface and Abstract class?
+Virtual methods?
+Overriding?
+What is a static method and variable?
+
+Sql:
+Constraints? Types of constraints?
+DDL and DML statements syntax
+
+ASP.NET?
+What is postback?
+Authorization and Authentication?
+State management techniques? types?
+Page Life cycle of ASP.NET
+
+
+
+
+

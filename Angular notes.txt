@@ -1,0 +1,159 @@
+Component
+1. html
+2. ts
+3. css
+4. spec.ts --> testing 
+
+html - tags
+display our values - interpolation {{}}
+initializing of the values - done in .ts file
+
+printing the values from .ts to html  - one way binding. {{}}
+Two way binding - [(ngModel)]
+Module.ts
+import {FormsModule} from '@angular/forms';
+import  FormsModule,
+
+Property Binding:[]
+template:``
+
+skill.ts
+export interface Skill
+{
+Sid:number;
+Sname:string;
+}
+
+employee.ts
+
+export interface employee
+{
+id:number;
+name:string;
+permenant:boolean;
+salary:number;
+skills:Skill[];
+}
+var skills:Skill[]-[{},{},{}]
+Event Binding: (click)="fn()"
+
+Template Reference Variable -> fetch the value of a text #
+
+Pipes
+Custom pipes:
+1. A pipe is a class decorated with pipe metadata.
+
+2. The pipe class implements the PipeTransform interface's 
+transform method that accepts an input value followed by 
+optional parameters and returns the transformed value.
+
+3. There will be one additional argument to the transform method 
+for each parameter passed to the pipe.
+
+4. To tell Angular that this is a pipe, you apply the 
+@Pipe decorator, which you import from the core Angular library.
+
+5. The @Pipe decorator allows you to define the pipe name that
+ you'll use within template expressions. 
+It must be a valid JavaScript identifier.
+
+The transform method is essential to a pipe. 
+The PipeTransform interface defines that method and guides
+both tooling and the compiler. Technically, it's optional;
+Angular looks for and executes the transform method regardless.
+
+
+import {Pipe,PipeTransform} from '@angular/core';
+import {computer} from '../Computer.Model'
+
+@Pipe({
+  name:'brandfilterPipe'
+})
+export class brandfilterPipe implements PipeTransform{
+  transform(CPUs:computer[],brandname:string)
+  {
+    if(!CPUs||!brandname)
+    {
+      return CPUs;
+    }
+    return CPUs.filter((x=>x.Brandname.toLowerCase()
+.indexOf(brandname.toLowerCase())!==-1));
+  }
+}
+@Pipe({
+  name:'purposefilterPipe'
+})
+export class purposefilterPipe implements PipeTransform{
+    transform(CPUs:computer[],searchterm:string)
+    {
+     if(!CPUs|| !searchterm)   
+   {
+       return CPUs;
+   }
+    return CPUs.filter((x=>x.purpose.toLowerCase()
+.indexOf(searchterm.toLowerCase())!==-1));
+    }
+  }
+@Pipe({
+    name:'budgetfilterPipe'
+    })
+  export class budgetfilterPipe implements PipeTransform{
+    transform(CPUs:computer[],searchbudget:number)
+    {
+     if(!CPUs|| !searchbudget)   
+   {
+       return CPUs;
+   }
+    return CPUs.filter((x=>x.price<searchbudget));
+    }
+  }
+
+
+1. Computer.Model.Ts
+2. ng g c Computers
+.ts --> Initialized computer collection
+.html--> Displayed the current collection *ngFor
+--> three text boxes with ngModel 
+Computer-file.pipe.ts
+1. New pipe by implementing the class from PipeTransform{
+by overriding Transform Method
+}
+@Pipe to give a name to the Custom pipes
+4. Make an entry of all pipes in App.Module.Ts
+
+
+Routing:
+
+app.routingmodule.ts
+
+app.module.ts
+
+Forms in Angular
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,305 @@
+.NET Notes:
+
+.NET is a framework(4.6/Core 2.2) which gives us 
+1. Base class libraries
+2. Supports multiple languages
+3. CLR (Common Language Runtime)
+The source code gets compiled by the
+ respective compilers and get converted into IL 
+(MSIL - Microsoft Intermediate Language/ CIL- Common Intermediate
+Language).
+CLR converts the CIL/MSIL into the native code using a 
+JIT compiler(Just in time Compiler).
+
+C#/ VB/ VC++/J#/F# are the languages supported by .NET f/w
+
+Visual studio(2019) is an IDE which provides the Integrated Development
+Environment which will provide us a place to type the source code,
+take care of compilation and execution
+
+Three types of Applications:
+1.Mobile Applications
+2. Web Applications
+3. Desktop Applications
+	1. Windows Applications
+	2. Console Applications
+
+C# is a case sensitive language
+Solution Explorer gives the project structure.
+A solution can have multiple projects and one project can have 
+many files. To set the start up file, go to project properties
+and choose the .cs which you want to execute.
+
+A namespace is a collection of Classes. It is similar to header files
+in C++ and package in Java.
+We can have nested namespaces. The inner namespace can be accessed 
+with a . operator. 
+Instead of writing firstns.secondns we can use the 'using' keyword 
+to include the namespace in the rest of the application.
+
+The datatypes in c#:
+int, float, bool, string, DateTime, Object - Primitive Datatypes
+we can also create our own datatypes which are called classes, struct
+enums (UDTs) - User Defined Datatypes
+
+Datatypes can be broadly classified into two types:
+1. Value Type - int, float,bool,datetime, struct, enum
+2. Reference Type - string, object, class, interface, delegates
+
+converting a int to float - Implicit Conversion
+Converting a float to int - Explicit Conversion
+
+Converting a value type to a reference type - Boxing
+Converting a reference type to a value type- UnBoxing
+
+Access specifiers in .NET:
+
+To define the visibility of the variables, methods, classes,
+namespaces, structures, intefaces we need the access specifiers.
+There are 6 access specifiers in .NET.
+Private
+private internal
+Protected
+proctected internal
+internal - default 
+Public
+
+Default access specifier of a namespace is public
+Default access specifier of a class is internal
+Default access specifier of the member variables and 
+member functions of a class is private
+
+Arrays in C#:
+int[] a=new int[5];
+
+enum in c#:
+The set of values that a varibale can take. We can define an enum
+and set the range of values that it can accept as an input.
+
+Class in c#:
+A class is a collection of member variables and member functions 
+which are encapsulated for implementing data abstraction. Generalization
+concept. It is an UDT (User Defined DataType).
+
+Data Abstraction:
+Providing necessary information and hiding sensitive information
+from the end user. It is implemented using the Access specifiers.
+
+Data Encapsulation:
+Binding of data and member functions into a single unit/Entity
+is called Data Encapsulation. 
+
+Structure of a class:
+class classname
+{
+access specifier member variable name;
+acess specifier member function names;
+}
+
+Object :
+Instance of a class.  Specialization.
+
+Constructor:
+A constructor is a special method which has the same name of 
+the class and is used to initialize the member variables
+It is automatically invoked when we instantiate the class.
+A constructor cannot have a return type as its primary function
+is to initialize the values of the member variables.
+A constructor has to be public as it is called outside the class.
+
+Overloading of constructor is used to initialize different set
+of member variables of different objects.
+
+Shape
+Accept()
+CalculateArea()
+Display()
+
+Triangle:Shape
+Accept()
+CalculateArea()
+Display()
+get()
+CalculateArea()
+show()
+
+Overriding - Redefining the base class methods in the derived class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InheritanceEg.cs
+{
+    class Shape
+    {
+      protected  double area;
+       protected string color;
+
+        public virtual void Accept()
+        {
+            Console.WriteLine("Enter the color:");
+            color = Console.ReadLine();
+         }
+
+        public virtual void Display()
+        {
+            Console.WriteLine("The Color is ");
+            Console.WriteLine(color);
+        }
+        public virtual void CalculateArea()
+        {
+            Console.WriteLine("Function to calculate Area:");
+        }
+    }
+    class circle:Shape
+    {
+        double radius;
+       public override void Accept()
+        {
+            Console.WriteLine("Enter the radius:");
+            radius = Convert.ToDouble(Console.ReadLine());
+        }
+
+        public override void Display()
+        {
+            Console.WriteLine("The Area of a circle is ");
+            Console.WriteLine(area);
+        }
+        public override void CalculateArea()
+        {
+            area = Convert.ToDouble(0.5 * radius * radius);
+        }
+    }
+
+    class triangle : Shape
+    {
+        float length, height;
+
+        public override void Accept()
+        {
+            Console.WriteLine("Enter length and height");
+            length = float.Parse(Console.ReadLine());
+            height = float.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter the color"); ;
+            //color = Console.ReadLine();
+           base.Accept();
+        }
+        public override void CalculateArea()
+        {
+            area = height * length;
+        }
+        public override void Display()
+        {
+            Console.WriteLine("Area of a traingle is "+area);
+        }
+    }
+
+
+}
+
+
+  static void Main(string[] args)
+        {
+           Shape s = new triangle();
+            s.Accept();
+            s.CalculateArea();
+            s.Display();
+            s = new circle();
+            s.Accept();
+            s.CalculateArea();
+            s.Display();
+           
+            //triangle t = new triangle();
+            //t.get();
+            //t.CalculateArea();//triangle
+            //t.show();
+            Console.ReadLine();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
