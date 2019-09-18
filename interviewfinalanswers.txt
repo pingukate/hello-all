@@ -1,0 +1,235 @@
+1. What is CLR? -- Common Language Runtime (CLR) in C#.....CLR is the basic and Virtual Machine component of the .NET Framework. It is the run-time enviornment in the .NET Framework that runs the codes and helps in making the development process easier by providing the various services. Basically, it is responsible for managing the execution of .NET programs regardless of any .NET programming language. Internally, CLR implements the VES(Virtual Execution System) which is defined in the Microsoft’s implementation of the CLI(Common Language Infrastructure).
+The code that runs under the Common Language Runtime is termed as the Managed Code. In other words, you can say that CLR provides a managed execution enviornment for the .NET programs by improving the security, including the cross language integration and a rich set of class libraries etc. CLR is present in every .NET framework verison. Below table illustrate the CLR version in .NET framework.
+
+*******************
+
+CTS? -- common type system
+
+****************
+
+Access specifiers in .NET? --- Public Access Specifier
+It allows a class to expose its member variables and member functions to other functions and objects.
+
+Private Access Specifier
+Private access specifier allows a class to hide its member variables and member functions from other functions and objects. Only functions of the same class can access its private members.
+
+Protected Access Specifier
+Protected access specifier allows a child class to access the member variables and member functions of its base class.
+
+Internal Access Specifier
+Internal access specifier allows a class to expose its member variables and member functions to other functions and objects in the current assembly.
+
+Protected Internal Access Specifier
+The protected internal access specifier allows a class to hide its member variables and member functions from other class objects and functions, except a child class within the same application.
+
+*************
+
+Boxing and UnBoxing? -- Boxing In C#
+
+The process of Converting a Value Type (char, int etc.) to a Reference Type(object) is called Boxing.
+Boxing is implicit conversion process in which object type (super type) is used.
+The Value type is always stored in Stack. The Referenced Type is stored in Heap.
+Example :
+int num = 23; // 23 will assigned to num
+Object Obj = num; // Boxing
+Unboxing In C#
+
+The process of converting reference type into the value type is known as Unboxing.
+It is explicit conversion process.
+Example :
+int num = 23;         // value type is int and assigned value 23
+Object Obj = num;    // Boxing
+int i = (int)Obj;    // Unboxing
+
+*************************** 
+
+What is interface? -- Interface in C# is a blueprint of a class. It is like abstract class because all the methods which are declared inside the interface are abstract methods. It cannot have method body and cannot be instantiated.
+
+It is used to achieve multiple inheritance which can't be achieved by class. It is used to achieve fully abstraction because it cannot have method body.
+
+Its implementation must be provided by class or struct. The class or struct which implements the interface, must provide the implementation of all the methods declared inside the interface.
+
+*********************
+
+Abstract class? -- An abstract class is an incomplete class or special class we can't be instantiated. The purpose of an abstract class is to provide a blueprint for derived classes and set some rules what the derived classes must implement when they inherit an abstract class.
+ 
+We can use an abstract class as a base class and all derived classes must implement abstract definitions. An abstract method must be implemented in all non-abstract classes using the override keyword. After overriding the abstract method is in the non-Abstract class. We can derive this class in another class and again we can override the same abstract method with it.
+
+**********************
+
+Difference between Interface and Abstract class? -- Difference Between An Abstract Class And An Interface 
+An Abstract class doesn't provide full abstraction but an interface does provide full abstraction; i.e. both a declaration and a definition is given in an abstract class but not so in an interface.
+Using Abstract we cannot achieve multiple inheritance but using an Interface we can achieve multiple inheritance.
+We can not declare a member field in an Interface.
+We can not use any access modifier i.e. public, private, protected, internal etc. because within an interface by default everything is public.
+An Interface member cannot be defined using the keyword static, virtual, abstract or sealed.
+
+***********************
+
+Virtual methods? -- A virtual method is a method that can be redefined in derived classes. A virtual method has an implementation in a base class as well as derived the class. It is used when a method's basic functionality is the same but sometimes more functionality is needed in the derived class. A virtual method is created in the base class that can be overriden in the derived class. We create a virtual method in the base class using the virtual keyword and that method is overriden in the derived class using the override keyword.
+
+******************
+
+Overriding? -- Method Overriding in C# is similar to the virtual function in C++. Method Overriding is a technique that allows the invoking of functions from another class (base class) in the derived class. Creating a method in the derived class with the same signature as a method in the base class is called as method overriding.
+
+****************
+
+What is a static method and variable? -- Static Variables and Static Methods
+Each object has its own set of member variables and all the member variables have a scope.
+
+If we want a variable to have the same value throughout all instances of the object then we can declare it as a static variable in our program. To manipulate and use the values of static variables we can also define a function as static.
+
+The keyword "static" means that only one instance of a given variable exists for a class. Static variables are used to define constants because their values can be retrieved by invoking the class without creating an instance of it.
+
+Static variables can be initialized outside the member function or class definition. The following code is an example of a static variable, which shows the declaration and initialization of a static variable.
+**********************
+
+Sql:
+
+Constraints? Types of constraints? -- SQL constraints are used to specify rules for the data in a table.
+
+Constraints are used to limit the type of data that can go into a table. This ensures the accuracy and reliability of the data in the table. If there is any violation between the constraint and the data action, the action is aborted.
+
+Constraints can be column level or table level. Column level constraints apply to a column, and table level constraints apply to the whole table.
+
+The following constraints are commonly used in SQL:
+
+NOT NULL - Ensures that a column cannot have a NULL value
+UNIQUE - Ensures that all values in a column are different
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table
+FOREIGN KEY - Uniquely identifies a row/record in another table
+CHECK - Ensures that all values in a column satisfies a specific condition
+DEFAULT - Sets a default value for a column when no value is specified
+INDEX - Used to create and retrieve data from the database very quickly
+
+*****************************
+
+DDL and DML statements syntax -- DDL(Data Definition Language) : DDL or Data Definition Language actually consists of the SQL commands that can be used to define the database schema. It simply deals with descriptions of the database schema and is used to create and modify the structure of database objects in the database.
+Examples of DDL commands:
+
+CREATE – is used to create the database or its objects (like table, index, function, views, store procedure and triggers).
+DROP – is used to delete objects from the database.
+ALTER-is used to alter the structure of the database.
+TRUNCATE–is used to remove all records from a table, including all spaces allocated for the records are removed.
+COMMENT –is used to add comments to the data dictionary.
+RENAME –is used to rename an object existing in the database.
+DQL (Data Query Language) :
+
+DML statements are used for performing queries on the data within schema objects. The purpose of DQL Command is to get some schema relation based on the query passed to it.
+
+Example of DQL:
+
+SELECT – is used to retrieve data from the a database.
+DML(Data Manipulation Language) : The SQL commands that deals with the manipulation of data present in the database belong to DML or Data Manipulation Language and this includes most of the SQL statements.
+Examples of DML:
+
+INSERT – is used to insert data into a table.
+UPDATE – is used to update existing data within a table.
+DELETE – is used to delete records from a database table.
+DCL(Data Control Language) : DCL includes commands such as GRANT and REVOKE which mainly deals with the rights, permissions and other controls of the database system.
+Examples of DCL commands:
+
+GRANT-gives user’s access privileges to database.
+REVOKE-withdraw user’s access privileges given by using the GRANT command.
+TCL(transaction Control Language) : TCL commands deals with the transaction within the database.
+Examples of TCL commands:
+
+COMMIT– commits a Transaction.
+ROLLBACK– rollbacks a transaction in case of any error occurs.
+SAVEPOINT–sets a savepoint within a transaction.
+SET TRANSACTION–specify characteristics for the transaction.
+***********************
+
+ASP.NET?
+What is postback? -- PostBack is the name given to the process of submitting an ASP.NET page to the server for processing. PostBack is done if certain credentials of the page are to be checked against some sources (such as verification of username and password using database). This is something that a client machine is not able to accomplish and thus these details have to be 'posted back' to the server.
+ 
+What is AutoPostBack Property in ASP.NET
+ 
+If we create a web Page, which consists of one or more Web Controls that are configured to use AutoPostBack (Every Web controls will have their own AutoPostBack property), the ASP.Net adds a special JavaScipt function to the rendered HTML Page. This function is named _doPostBack() . When Called, it triggers a PostBack, sending data back to the web Server.
+ 
+ASP.NET also adds two additional hidden input fields that are used to pass information back to the server. This information consists of ID of the Control that raised the event and any additional information if needed. These fields will empty initially as shown below,
+*******************************
+
+Authorization and Authentication? -- Authentication in ASP.NET
+ 
+There are two closely interlinked concepts at the heart of security for distributed applications - authentication and authorization. Authentication is the process of obtaining some sort of credentials from the users and using those credentials to verify the user's identity. Authorization is the process of allowing an authenticated user access to resources. Authentication is always precedes to Authorization; even if your application lets anonymous users connect and use the application, it still authenticates them as being anonymous.
+
+Authentication providers
+ 
+Assuming IIS passes a request to ASP.net, what happens next? The answer depends on the configuration of ASP.net itself. The ASP.net architecture includes the concept of and authentication provider a piece of code whose job is to verify credentials and decide whether a particular request should be considered authenticated. Out of the box ASP.net gives you a choice of three different authentication providers.
+********************
+
+State management techniques? --State Management Techniques
+ 
+State Management techniques are based on client side and server side. Their functionality differs depending on the change in state, so here is the hierarchy:
+ 
+ASP.NET State Management Techniques 
+ 
+Client-side | Techniques
+ 
+Client-Side State Management techniques are,
+View State
+Hidden field
+Cookies
+Control State
+Query Strings
+Server-side | Technique
+ 
+Server-Side State Management techniques are,
+Session State
+Application State
+*******************
+ types? --  
+
+State Management Types
+ 
+In ASP.NET there are the following 2 State Management methodologies:
+ 
+State Management in ASP.NET 
+ 
+Client-Side State Management
+ 
+Whenever we use Client-Side State Management, the state related information will directly get stored on the client-side. That specific information will travel back and communicate with every request generated by the user then afterwards provides responses after server-side communication.
+ 
+This architecture is something like the following,
+
+State Management In ASP.NET 
+
+ 
+Server-Side State Management
+ 
+Server-Side State Management is different from Client-Side State Management but the operations and working is somewhat the same in functionality. In Server-Side State Management all the information is stored in the user memory. Due to this functionality there is more secure domains at the server side in comparison to Client-Side State Management.
+ 
+The structure is something like the following,
+******************************
+
+State Management In ASP.NET -- As I said in the beginning, HTTP is a stateless protocol. It just cleans up or we can say removes all the resources/references that were serving a specific request in the past. These resources can be:
+Objects
+Allocated Memory
+Sessions ID's
+Some URL info
+and so on.
+*******************************
+Page Life cycle of ASP.NET -- Following are the different stages of an ASP.NET page:
+
+Page request - When ASP.NET gets a page request, it decides whether to parse and compile the page, or there would be a cached version of the page; accordingly the response is sent.
+
+Starting of page life cycle - At this stage, the Request and Response objects are set. If the request is an old request or post back, the IsPostBack property of the page is set to true. The UICulture property of the page is also set.
+
+Page initialization - At this stage, the controls on the page are assigned unique ID by setting the UniqueID property and the themes are applied. For a new request, postback data is loaded and the control properties are restored to the view-state values.
+
+Page load - At this stage, control properties are set using the view state and control state values.
+
+Validation - Validate method of the validation control is called and on its successful execution, the IsValid property of the page is set to true.
+
+Postback event handling - If the request is a postback (old request), the related event handler is invoked.
+
+Page rendering - At this stage, view state for the page and all controls are saved. The page calls the Render method for each control and the output of rendering is written to the OutputStream class of the Response property of page.
+
+Unload - The rendered page is sent to the client and page properties, such as Response and Request, are unloaded and all cleanup done.
+*******************
+
+
+
+
+
